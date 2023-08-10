@@ -42,7 +42,7 @@ int main (){
        long int worst[n];
        long int i;
        for (i=0;i<n;i++){
-           long int num = i + 1;
+           long int num = i;
            best[i] = num;
        }
        
@@ -143,7 +143,7 @@ int main (){
        long int worst[n];
        long int i;
        for (i=0;i<n;i++){
-           long int num = i + 1;
+           long int num = i;
            best[i] = num;
        }
        
@@ -242,7 +242,7 @@ int main (){
        long int worst[n];
        long int i;
        for (i=0;i<n;i++){
-           long int num = i + 1;
+           long int num = i;
            best[i] = num;
        }
        
