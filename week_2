@@ -1,0 +1,290 @@
+/*
+ Name: Prabhat Tripathi
+ Reg No: 2022ca060
+ Course: MCA
+ Objective: Write a c program to analyze the time complexity of Bubble Sort algorithm and plot their graph
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+// swap function to swap the values in the array
+void swap(long int* a, long int* b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+// bubble sort function to sort the array using bubble sort algorithm
+void bubblesort(long int a[],long int n){
+  long int i, j;
+  for ( i = 0; i < n - 1; i++) {
+        for ( j = 0; j < n - 1 - i; j++) {
+            if (a[j] > a[j + 1]) {
+                swap(&a[j], &a[j + 1]);
+            }
+        }
+    }
+}
+
+int main (){
+    long int n = 10000;
+    int count = 0;
+    double time1[10];
+    double time2[10];
+    double time3[10];
+    while (count++ < 10)
+    {
+    // creating array of n size
+       long int best[n];
+       long int avg[n];
+       long int worst[n];
+       long int i;
+       for (i=0;i<n;i++){
+           long int num = i + 1;
+           best[i] = num;
+       }
+       
+       for (i=0;i<n;i++){
+           long int num = rand() % n + 1;
+           avg[i] = num;
+       }
+       
+       for (i=0;i<n;i++){
+           long int num = n - i +1;
+           worst[i] = num;
+       }
+       
+       // finding time complexity for best case 
+       clock_t start, end;
+        
+       start = clock();
+       bubblesort(best, n);
+       end = clock();       
+       
+       time1[count] = ((double)(end - start));
+      
+       // finding time complexity for avarage case
+        
+       start = clock();
+       bubblesort(avg, n);
+       end = clock();       
+       
+       time2[count] = ((double)(end - start));
+       
+       // finding time complexity for worst case
+        
+       start = clock();
+       bubblesort(worst, n);
+       end = clock();       
+       
+       time3[count] = ((double)(end - start));
+       
+       
+       printf("%li %li %li %li\n", n, (long int)time1[count], (long int)time2[count], (long int)time3[count]);
+       
+       n += 10000;
+    }
+    return 0;
+}
+______________________________________________________________________________________________________________________________
+
+
+/*
+ Name: Prabhat Tripathi
+ Reg No: 2022ca060
+ Course: MCA
+ Objective: Write a c program to analyze the time complexity of Selection Sort algorithm and plot their graph
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+// swap function to swap the values in the array
+void swap(long int* a, long int* b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+// Selection sort
+void selectionsort(long int arr[], long int n)
+{
+    long int i, j, min_idx;
+  
+    for (i = 0; i < n - 1; i++) {
+  
+        // Find the minimum element in unsorted array
+        min_idx = i;
+  
+        for (j = i + 1; j < n; j++)
+            if (arr[j] < arr[min_idx])
+                min_idx = j;
+  
+        // Swap the found minimum element
+        // with the first element
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+
+int main (){
+    long int n = 10000;
+    int count = 0;
+    double time1[10];
+    double time2[10];
+    double time3[10];
+    while (count++ < 10)
+    {
+    // creating array of n size
+       long int best[n];
+       long int avg[n];
+       long int worst[n];
+       long int i;
+       for (i=0;i<n;i++){
+           long int num = i + 1;
+           best[i] = num;
+       }
+       
+       for (i=0;i<n;i++){
+           long int num = rand() % n + 1;
+           avg[i] = num;
+       }
+       
+       for (i=0;i<n;i++){
+           long int num = n - i +1;
+           worst[i] = num;
+       }
+       
+       // finding time complexity for best case 
+       clock_t start, end;
+        
+       start = clock();
+       bubblesort(best, n);
+       end = clock();       
+       
+       time1[count] = ((double)(end - start));
+      
+       // finding time complexity for avarage case
+        
+       start = clock();
+       bubblesort(avg, n);
+       end = clock();       
+       
+       time2[count] = ((double)(end - start));
+       
+       // finding time complexity for worst case
+        
+       start = clock();
+       bubblesort(worst, n);
+       end = clock();       
+       
+       time3[count] = ((double)(end - start));
+       
+       
+       printf("%li %li %li %li\n", n, (long int)time1[count], (long int)time2[count], (long int)time3[count]);
+       
+       n += 10000;
+    }
+    return 0;
+}
+_______________________________________________________________________________________________________________________________
+
+/*
+ Name: Prabhat Tripathi
+ Reg No: 2022ca060
+ Course: MCA
+ Objective: Write a c program to analyze the time complexity of Insertion Sort algorithm and plot their graph
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+// swap function to swap the values in the array
+void swap(long int* a, long int* b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+// Insertion sort
+void insertionsort(long int arr[], long int n)
+{
+    long int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+  
+        // Move elements of arr[0..i-1], that are
+        // greater than key, to one position ahead
+        // of their current position
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+int main (){
+    long int n = 10000;
+    int count = 0;
+    double time1[10];
+    double time2[10];
+    double time3[10];
+    while (count++ < 10)
+    {
+    // creating array of n size
+       long int best[n];
+       long int avg[n];
+       long int worst[n];
+       long int i;
+       for (i=0;i<n;i++){
+           long int num = i + 1;
+           best[i] = num;
+       }
+       
+       for (i=0;i<n;i++){
+           long int num = rand() % n + 1;
+           avg[i] = num;
+       }
+       
+       for (i=0;i<n;i++){
+           long int num = n - i +1;
+           worst[i] = num;
+       }
+       
+       // finding time complexity for best case 
+       clock_t start, end;
+        
+       start = clock();
+       bubblesort(best, n);
+       end = clock();       
+       
+       time1[count] = ((double)(end - start));
+      
+       // finding time complexity for avarage case
+        
+       start = clock();
+       bubblesort(avg, n);
+       end = clock();       
+       
+       time2[count] = ((double)(end - start));
+       
+       // finding time complexity for worst case
+        
+       start = clock();
+       bubblesort(worst, n);
+       end = clock();       
+       
+       time3[count] = ((double)(end - start));
+       
+       
+       printf("%li %li %li %li\n", n, (long int)time1[count], (long int)time2[count], (long int)time3[count]);
+       
+       n += 10000;
+    }
+    return 0;
+}
