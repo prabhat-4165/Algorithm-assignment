@@ -34,7 +34,7 @@ int main (){
     double time1[10];
     double time2[10];
     double time3[10];
-    while (count++ < 10)
+    while (count++ < 9)
     {
     // creating array of n size
        long int best[n];
@@ -135,7 +135,7 @@ int main (){
     double time1[10];
     double time2[10];
     double time3[10];
-    while (count++ < 10)
+    while (count++ < 9)
     {
     // creating array of n size
        long int best[n];
@@ -234,7 +234,7 @@ int main (){
     double time1[10];
     double time2[10];
     double time3[10];
-    while (count++ < 10)
+    while (count++ < 9)
     {
     // creating array of n size
        long int best[n];
